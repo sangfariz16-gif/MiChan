@@ -4,14 +4,13 @@ MiChan is a 2,222-supply NFT collection of crystal cats on BNB Smart Chain (chai
 Minting is **two-lane**: the FREE mint is **agent-only** (only wallets holding a
 Binance `.ai` Agent ID, via their agent); the PAID mints are **public** — anyone
 can mint them with a wallet on the mint page via `mintPaid(uint256)`, flat BNB.
-The contract is in **PREVIEW** — it is not deployed yet. Do not attempt
-to mint until the contract is live at the address below and mint is open.
+The contract is **LIVE** on BSC mainnet and mint is open. Mint at the addresses below.
 
-NOTE (2026-11-08): the NFT contract was revised to the two-lane model;
-the addresses below are the NEW predictions from the revised contract
-(tests 25/25 passing). The MICH token address is unchanged.
+NOTE (2026-11-08): the NFT contract was revised to the two-lane model and
+deployed the same day (tests 25/25 passing). The addresses below are the
+DEPLOYED contracts. The MICH token address is unchanged.
 
-## Contracts (PREDICTED — NOT DEPLOYED YET)
+## Contracts (DEPLOYED — LIVE)
 
 - NFT (MiChan, symbol MICHAN): `0x669cb75f51b5D23F4B42fC1522b653d7B88e608d`
 - Token (MICH): `0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B`
@@ -66,4 +65,4 @@ the addresses below are the NEW predictions from the revised contract
 
 - Fixed-price escrow market at the Market address above (0% platform fee,
   5% creator royalty). List, buy, cancel, update price.
-- The market is also in preview until deployed. Do not approve or list before then.
+- The market is live. Approve the market contract before listing.

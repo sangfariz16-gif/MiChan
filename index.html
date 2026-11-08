@@ -169,7 +169,6 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
 
 <div class="wrap">
 
-  <div class="banner" id="previewBanner">🔮 <b>PREVIEW</b> — contracts are not deployed yet. Nothing here mints. Mint opens on the announced date.</div>
 
   <section class="hero">
     <div class="eyebrow">BNB SMART CHAIN · 5 TIERS · FIRST MINT FREE</div>
@@ -198,7 +197,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
       </div>
       <div class="ballnum"><span id="ballMinted">—</span> <small>/ 2,222 minted</small></div>
       <div class="bar"><i id="ballBar"></i></div>
-      <div class="ballnote" id="ballNote">Preview — contracts not deployed yet. The ball wakes when the first cat is minted.</div>
+      <div class="ballnote" id="ballNote">The ball wakes when the first cat is minted.</div>
     </div>
   </section>
 
@@ -267,7 +266,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
     <div class="eyebrow2">MINT · TWO LANES</div>
     <h2>Mint <span>MiChan</span></h2>
     <div class="mintbox">
-      <p class="lede" style="margin-bottom:0"><b>PREVIEW — mint is not open yet.</b> The price schedule below is planned, not on-chain. The free mint is for Agent ID holders; paid mints are public.</p>
+      <p class="lede" style="margin-bottom:0"><b>Mint is open.</b> The price schedule below is live on-chain. The free mint is for Agent ID holders; paid mints are public.</p>
       <table class="price-table">
         <tr><th>MINT #</th><th>WHO</th><th>PRICE</th></tr>
         <tr><td>#1 per wallet</td><td>Agent ID only</td><td>FREE</td></tr>
@@ -289,7 +288,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
         <button class="qtybtn" id="paidPlus" type="button">+</button>
         <span class="total" id="paidTotal">0.001 BNB</span>
       </div>
-      <div class="status" id="publicStatus">Preview — the contract is not deployed yet. Connect your wallet to see your exact price once mint is live.</div>
+      <div class="status" id="publicStatus">Connect your wallet to see your exact price.</div>
       <div class="fine" id="myMintsLine" style="margin-top:6px">Your wallet: not connected.</div>
 
       <h3 style="font-size:16px;margin:20px 0 6px">🤖 Priority Lane — free mint for Agent ID holders</h3>
@@ -347,7 +346,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
     </details>
     <details>
       <summary>When does mint open?</summary>
-      <p>Date <b>TBA</b>. This page is a <b>preview</b> — the contracts are not deployed yet and nothing here mints. The crystal ball above wakes when the first cat is minted.</p>
+      <p>Mint is open now. The crystal ball above wakes when the first cat is minted.</p>
     </details>
   </section>
 
@@ -362,9 +361,9 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
   </section>
 
   <footer>
-    <div>MiChan (MICHAN) — NFT contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x669cb75f51b5D23F4B42fC1522b653d7B88e608d</code></div>
-    <div>MICH token: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B</code></div>
-    <div>Market contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x299B2A54c48ADc692F5d9930A8eD2E4ee63297fF</code></div>
+    <div>MiChan (MICHAN) — NFT contract: <span class="pred">DEPLOYED — LIVE</span><br><code>0x669cb75f51b5D23F4B42fC1522b653d7B88e608d</code></div>
+    <div>MICH token: <span class="pred">DEPLOYED — LIVE</span><br><code>0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B</code></div>
+    <div>Market contract: <span class="pred">DEPLOYED — LIVE</span><br><code>0x299B2A54c48ADc692F5d9930A8eD2E4ee63297fF</code></div>
     <div style="margin-top:10px">Chain: BNB Smart Chain (56) · Royalty 5% · Max 3 per wallet · Free mint: Agent ID only. Paid mints: public, wallet, flat BNB.</div>
     <div>Honest rules: no promise of financial return. Mint prices, supply, and rarity ranges are published above. MICH has no price or liquidity yet.</div>
     <div>© 2026 MiChan. Crystal cats, forged in blue light.</div>
@@ -372,9 +371,9 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
 </div>
 <script>
 "use strict";
-/* MiChan — PREVIEW page. Contracts NOT deployed yet.
-   All live reads target the PREDICTED NFT address; before deploy every
-   read fails and the page shows the preview state — never 0. */
+/* MiChan — LIVE page. Contracts deployed on BSC mainnet.
+   All live reads target the NFT address; if a read fails the page shows
+   the preview state — never 0. */
 var NFT = "0x669cb75f51b5D23F4B42fC1522b653d7B88e608d";
 var MICH = "0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B";
 var MARKET = "0x299B2A54c48ADc692F5d9930A8eD2E4ee63297fF";
@@ -441,7 +440,7 @@ function setBall(minted) {
   var img = $("ballImg"), glow = $("ballGlow"), bar = $("ballBar");
   if (minted === null) {
     setText("ballMinted", "—");
-    setText("ballNote", "Preview — contracts not deployed yet. The ball wakes when the first cat is minted.");
+    setText("ballNote", "Live data unavailable right now. The ball wakes when the first cat is minted.");
     if (bar) bar.style.width = "0%";
     if (img) img.style.filter = "brightness(0.55) saturate(0.7)";
     if (glow) glow.style.opacity = "0.25";
@@ -565,7 +564,7 @@ async function connectWallet() {
     await readMyMints();
     out.textContent = contractLive
       ? (mintOpen ? "Connected — mint is open. Pick your quantity and press Mint now." : "Connected — mint is not open yet. Come back at the announced time.")
-      : "Connected — contract not deployed yet (preview). Your exact price will be read from the chain once mint is live.";
+      : "Connected — could not read the contract. Try again in a moment.";
     updatePaid();
   } catch (e) {
     out.textContent = "Wallet connection failed: " + (e && e.message ? e.message : e);
@@ -585,7 +584,7 @@ async function ensureBsc() {
 }
 async function doMintPaid() {
   var out = $("publicStatus");
-  if (!contractLive) { out.textContent = "Preview — the contract is not deployed yet."; return; }
+  if (!contractLive) { out.textContent = "Could not read the contract. Try again in a moment."; return; }
   if (!mintOpen) { out.textContent = "Mint is not open yet."; return; }
   if (!connected) { await connectWallet(); if (!connected) return; }
   if (MAX_PAID_PER_WALLET - myPaid() < paidQty) { out.textContent = "You already minted " + myPaid() + " paid cat(s) — max 2 paid per wallet."; return; }
@@ -615,7 +614,7 @@ if (mintNowBtn) mintNowBtn.addEventListener("click", doMintPaid);
 
 /* ---- priority lane: agent prompt for the FREE mint ---- */
 function buildAgentPrompt() {
-  return "Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the MiChan contract 0x669cb75f51b5D23F4B42fC1522b653d7B88e608d and mint my FREE MiChan (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Simulate the transaction first, then execute it. NOTE: MiChan is in PREVIEW — do not mint before the contract is deployed.";
+  return "Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the MiChan contract 0x669cb75f51b5D23F4B42fC1522b653d7B88e608d and mint my FREE MiChan (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Simulate the transaction first, then execute it.";
 }
 function openAgentPrompt() {
   var box = $("agentPromptBox");

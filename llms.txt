@@ -16,7 +16,7 @@
 - Token: MICH — 120,000 per paid mint, 1B total (540M pool / 460M treasury), max 240,000 per wallet. No price, no liquidity yet.
 - Market: fixed-price escrow, 0% platform fee, 5% creator royalty.
 
-## Contracts (PREDICTED — NOT DEPLOYED YET)
+## Contracts (DEPLOYED — LIVE)
 
 - NFT (MICHAN): 0x669cb75f51b5D23F4B42fC1522b653d7B88e608d
 - MICH token: 0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B
@@ -25,4 +25,4 @@
 
 ## Status
 
-PREVIEW — contracts not deployed yet. Nothing mints until the announced open date.
+Mint is open. Contracts are live on BSC mainnet.
