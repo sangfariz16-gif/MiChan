@@ -7,8 +7,8 @@
 <meta name="description" content="MiChan — 2,222 crystal cats on BNB Chain. First mint FREE for Agent ID holders; paid mints open to everyone, 0.001 / 0.003 BNB. Max 3 per wallet.">
 <meta property="og:title" content="MiChan — 2,222 Crystal Cats on BNB Chain">
 <meta property="og:description" content="First mint FREE for Agent ID holders; paid mints open to everyone, 0.001 / 0.003 BNB, on BNB Chain.">
-<meta property="og:image" content="https://michan.vercel.app/assets/hero.png">
-<meta property="og:url" content="https://michan.vercel.app/">
+<meta property="og:image" content="https://michan-two.vercel.app/assets/hero.png">
+<meta property="og:url" content="https://michan-two.vercel.app/">
 <style>
 :root{--bg:#0a0e1e;--bg2:#0e1430;--card:#131a38;--card2:#1a2348;--line:#24305e;--blue:#4da6ff;--ice:#7cc4ff;--gold:#f5c542;--gold2:#d4af37;--txt:#eef4ff;--mut:#a9b8e0;--mut2:#8b9cc9}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -362,9 +362,9 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
   </section>
 
   <footer>
-    <div>MiChan (MICHAN) — NFT contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984</code></div>
+    <div>MiChan (MICHAN) — NFT contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x669cb75f51b5D23F4B42fC1522b653d7B88e608d</code></div>
     <div>MICH token: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B</code></div>
-    <div>Market contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x11dA65a668C947799739722af745AF34868d3aCc</code></div>
+    <div>Market contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x299B2A54c48ADc692F5d9930A8eD2E4ee63297fF</code></div>
     <div style="margin-top:10px">Chain: BNB Smart Chain (56) · Royalty 5% · Max 3 per wallet · Free mint: Agent ID only. Paid mints: public, wallet, flat BNB.</div>
     <div>Honest rules: no promise of financial return. Mint prices, supply, and rarity ranges are published above. MICH has no price or liquidity yet.</div>
     <div>© 2026 MiChan. Crystal cats, forged in blue light.</div>
@@ -375,9 +375,9 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe
 /* MiChan — PREVIEW page. Contracts NOT deployed yet.
    All live reads target the PREDICTED NFT address; before deploy every
    read fails and the page shows the preview state — never 0. */
-var NFT = "0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984";
+var NFT = "0x669cb75f51b5D23F4B42fC1522b653d7B88e608d";
 var MICH = "0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B";
-var MARKET = "0x11dA65a668C947799739722af745AF34868d3aCc";
+var MARKET = "0x299B2A54c48ADc692F5d9930A8eD2E4ee63297fF";
 var REGISTRY = "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F";
 var MAX_SUPPLY = 2222;
 var MAX_PER_WALLET = 3;
@@ -615,7 +615,7 @@ if (mintNowBtn) mintNowBtn.addEventListener("click", doMintPaid);
 
 /* ---- priority lane: agent prompt for the FREE mint ---- */
 function buildAgentPrompt() {
-  return "Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the MiChan contract 0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984 and mint my FREE MiChan (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Simulate the transaction first, then execute it. NOTE: MiChan is in PREVIEW — do not mint before the contract is deployed.";
+  return "Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the MiChan contract 0x669cb75f51b5D23F4B42fC1522b653d7B88e608d and mint my FREE MiChan (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Simulate the transaction first, then execute it. NOTE: MiChan is in PREVIEW — do not mint before the contract is deployed.";
 }
 function openAgentPrompt() {
   var box = $("agentPromptBox");
@@ -670,7 +670,7 @@ if (shareBtn) {
     var text = (minted === "—")
       ? "MiChan — 2,222 crystal cats on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. Preview is live, mint opens soon. #MiChan #BNBAgents"
       : "MiChan — " + minted + " / 2,222 crystal cats minted on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. #MiChan #BNBAgents";
-    var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent("https://michan.vercel.app/");
+    var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent("https://michan-two.vercel.app/");
     window.open(url, "_blank", "noopener");
   });
 }

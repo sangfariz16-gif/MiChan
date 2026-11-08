@@ -13,12 +13,12 @@ the addresses below are the NEW predictions from the revised contract
 
 ## Contracts (PREDICTED — NOT DEPLOYED YET)
 
-- NFT (MiChan, symbol MICHAN): `0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984`
+- NFT (MiChan, symbol MICHAN): `0x669cb75f51b5D23F4B42fC1522b653d7B88e608d`
 - Token (MICH): `0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B`
-- Market: `0x11dA65a668C947799739722af745AF34868d3aCc`
+- Market: `0x299B2A54c48ADc692F5d9930A8eD2E4ee63297fF`
 - Agent ID registry (SPACE ID): `0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F`
-- Mint page: https://michan.vercel.app/
-- Market page: https://michan.vercel.app/market.html
+- Mint page: https://michan-two.vercel.app/
+- Market page: https://michan-two.vercel.app/market.html
 
 ## Mint rules
 
