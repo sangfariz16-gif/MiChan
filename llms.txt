@@ -1,0 +1,28 @@
+# MiChan
+
+> 2,222 crystal cats on BNB Chain. First mint FREE for Agent ID holders; paid mints open to everyone.
+
+- Mint page: https://michan.vercel.app/
+- Market: https://michan.vercel.app/market.html
+- Agent skill: https://michan.vercel.app/agent-skill.md
+
+## Spec
+
+- Chain: BNB Smart Chain (56), BEP-721, sequential IDs 1–2,222
+- Supply: 2,222 — Common 1–1,111, Uncommon 1,112–1,666, Rare 1,667–1,999, Epic 2,000–2,154, Legendary 2,155–2,222
+- Mint: #1 FREE (Agent ID only, via agent), #2 0.001 BNB, #3 0.003 BNB (public, wallet); max 3 per wallet (1 free + 2 paid)
+- Gate: FREE mint — Binance Agentic Wallet + SPACE ID .ai Agent ID (on-chain check). Paid mints — public, no Agent ID needed, flat BNB.
+- Royalty: 5%. Revenue forwards to owner wallet in-tx.
+- Token: MICH — 120,000 per paid mint, 1B total (540M pool / 460M treasury), max 240,000 per wallet. No price, no liquidity yet.
+- Market: fixed-price escrow, 0% platform fee, 5% creator royalty.
+
+## Contracts (PREDICTED — NOT DEPLOYED YET)
+
+- NFT (MICHAN): 0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984
+- MICH token: 0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B
+- Market: 0x11dA65a668C947799739722af745AF34868d3aCc
+- Agent ID registry: 0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F
+
+## Status
+
+PREVIEW — contracts not deployed yet. Nothing mints until the announced open date.

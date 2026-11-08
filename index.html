@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MiChan — 2,222 Crystal Cats on BNB Chain</title>
+<meta name="description" content="MiChan — 2,222 crystal cats on BNB Chain. First mint FREE for Agent ID holders; paid mints open to everyone, 0.001 / 0.003 BNB. Max 3 per wallet.">
+<meta property="og:title" content="MiChan — 2,222 Crystal Cats on BNB Chain">
+<meta property="og:description" content="First mint FREE for Agent ID holders; paid mints open to everyone, 0.001 / 0.003 BNB, on BNB Chain.">
+<meta property="og:image" content="https://michan.vercel.app/assets/hero.png">
+<meta property="og:url" content="https://michan.vercel.app/">
+<style>
+:root{--bg:#0a0e1e;--bg2:#0e1430;--card:#131a38;--card2:#1a2348;--line:#24305e;--blue:#4da6ff;--ice:#7cc4ff;--gold:#f5c542;--gold2:#d4af37;--txt:#eef4ff;--mut:#a9b8e0;--mut2:#8b9cc9}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;padding-bottom:env(safe-area-inset-bottom)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(600px 300px at 15% -5%,rgba(77,166,255,.22),transparent 60%),
+  radial-gradient(500px 260px at 90% 10%,rgba(245,197,66,.12),transparent 60%),
+  radial-gradient(700px 400px at 50% 110%,rgba(77,166,255,.10),transparent 60%)}
+a{color:var(--ice);text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 14px 48px;position:relative;z-index:1}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(10,14,30,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .in{max-width:960px;margin:0 auto;padding:12px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:19px;letter-spacing:.5px}
+.logo span{background:linear-gradient(90deg,var(--ice),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo small{color:var(--gold);font-size:11px;letter-spacing:2px}
+header nav{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;color:var(--txt);background:var(--card)}
+.btn{cursor:pointer;border:0;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;background:var(--blue);color:#06121f}
+.btn.gold{background:var(--gold);color:#241a02}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.sm{padding:7px 12px;font-size:13px}
+/* ticker */
+.ticker{overflow:hidden;white-space:nowrap;background:var(--blue);color:#06121f;font-weight:800;font-size:13px;letter-spacing:1.5px;padding:9px 0}
+.ticker span{display:inline-block;padding-left:100%;animation:tick 22s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+/* hero */
+.hero{padding:30px 0 8px;text-align:center}
+.eyebrow{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;letter-spacing:2px;color:var(--ice)}
+.hero h1{font-size:clamp(56px,17vw,110px);line-height:.95;font-weight:900;letter-spacing:-2px;
+  background:linear-gradient(180deg,#ffffff 20%,var(--ice) 55%,var(--blue) 80%,var(--gold) 115%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;margin:10px 0 12px}
+.hero .sub{color:var(--mut);font-size:16px;line-height:1.6;max-width:640px;margin:0 auto}
+.hero .sub b{color:var(--txt)}
+.hero-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:22px 0 14px}
+.hcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:4px 4px 0 rgba(0,0,0,.35)}
+.hcard img{width:100%;aspect-ratio:1;display:block;object-fit:cover}
+.hcard .nm{font-size:12px;font-weight:800;padding:8px 6px;color:var(--ice)}
+.hcard .tg{font-size:11px;color:var(--gold);padding:0 6px 8px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.stat b{display:block;font-size:22px;color:var(--gold)}
+.stat span{font-size:12px;color:var(--mut)}
+/* crystal ball widget */
+.ballcard{background:linear-gradient(160deg,#131a38,#0e1430 60%,#1a2348);border:1px solid var(--line);border-radius:18px;padding:20px 16px;text-align:center;margin:16px 0}
+.ballcard h3{font-size:15px;letter-spacing:2px;color:var(--ice);margin-bottom:10px}
+.ballwrap{position:relative;width:180px;height:180px;margin:0 auto}
+.ballwrap img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;transition:filter .6s ease}
+.ballglow{position:absolute;inset:-14px;border-radius:50%;pointer-events:none;opacity:.25;
+  background:radial-gradient(circle,rgba(124,196,255,.55),rgba(77,166,255,.15) 55%,transparent 70%);transition:opacity .6s ease}
+.ballnum{font-size:26px;font-weight:900;color:#fff;margin-top:12px}
+.ballnum small{font-size:14px;color:var(--mut);font-weight:600}
+.bar{height:10px;border-radius:999px;background:#1a2348;border:1px solid var(--line);overflow:hidden;margin:10px auto 6px;max-width:420px}
+.bar i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--ice),var(--gold));transition:width .6s ease}
+.ballnote{font-size:13px;color:var(--mut)}
+/* banner */
+.banner{margin:16px 0;border:1px solid var(--gold2);background:#33270a;color:#fde68a;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;text-align:center}
+/* sections */
+section{margin-top:34px}
+h2{font-size:clamp(24px,6vw,32px);line-height:1.15;margin-bottom:6px}
+h2 span{color:var(--gold)}
+.eyebrow2{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;letter-spacing:2px;color:var(--ice);margin-bottom:6px}
+.lede{color:var(--mut);font-size:15px;line-height:1.6;margin-bottom:14px}
+.lede b{color:var(--txt)}
+/* lanes */
+.lanes{display:grid;gap:12px}
+.lane{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.lane.gold{border-color:var(--gold2);background:linear-gradient(160deg,#1a2348,#131a38)}
+.lane h3{font-size:18px;margin-bottom:8px}
+.lane h3 span{color:var(--gold)}
+.lane p{color:var(--mut);font-size:14px;line-height:1.6;margin-bottom:10px}
+.lane p b{color:var(--txt)}
+.lane ul{list-style:none;color:var(--mut);font-size:14px;line-height:1.9}
+.lane ul li::before{content:"✦ ";color:var(--gold)}
+/* marquee strip */
+.strip{overflow:hidden;white-space:nowrap;background:var(--gold);color:#241a02;font-weight:900;font-size:15px;letter-spacing:1.5px;padding:10px 0;margin:34px -14px 0}
+.strip span{display:inline-block;padding-left:100%;animation:tick 20s linear infinite}
+/* variants grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.vcard{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:4px 4px 0 rgba(0,0,0,.3)}
+.vcard img{width:100%;aspect-ratio:1;display:block;object-fit:cover;background:var(--card2)}
+.vcard .bd{padding:10px 12px 12px}
+.vcard .nm{font-weight:800;font-size:15px}
+.vcard .rar{font-size:12px;font-weight:800;letter-spacing:1px;margin:3px 0}
+.vcard .rng{font-size:12px;color:var(--mut)}
+.vcard .cnt{font-size:12px;color:var(--gold);font-weight:700;margin-top:2px}
+.rar-common{color:#bcd7ff}.rar-uncommon{color:#7ee2a8}.rar-rare{color:#7cc4ff}.rar-epic{color:#d9a5ff}.rar-legendary{color:var(--gold)}
+/* steps */
+.steps{display:grid;gap:12px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;gap:14px}
+.step .n{font-size:26px;font-weight:900;color:var(--blue);min-width:34px}
+.step h3{font-size:16px;margin-bottom:4px}
+.step p{color:var(--mut);font-size:14px;line-height:1.6}
+/* mint */
+.mintbox{background:var(--card);border:1px solid var(--gold2);border-radius:18px;padding:20px 16px}
+.price-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+.price-table td,.price-table th{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left}
+.price-table th{color:var(--mut);font-size:12px;letter-spacing:1px}
+.price-table td:last-child,.price-table th:last-child{text-align:right;color:var(--gold);font-weight:800}
+.stepper{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0}
+.stepper .lbl{font-size:13px;color:var(--mut)}
+.qtybtn{width:42px;height:42px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--txt);font-size:20px;font-weight:800;cursor:pointer}
+.qtyval{font-size:22px;font-weight:900;min-width:28px;text-align:center}
+.total{font-size:15px;font-weight:800;color:var(--gold)}
+.codebox{background:#05070f;border:1px solid var(--line);border-radius:12px;padding:14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-word;color:#dbeafe}
+.fine{font-size:13px;color:var(--mut);line-height:1.6}
+input[type=text]{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--txt);font-size:15px}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.row>*{flex:1;min-width:140px}
+.status{font-size:13px;color:var(--mut);line-height:1.5;min-height:20px}
+.status.ok{color:#bbf7d0}.status.err{color:#fca5a5}
+/* token */
+.tokgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}
+.tok{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}
+.tok b{display:block;font-size:20px;color:var(--gold)}
+.tok span{font-size:12px;color:var(--mut)}
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;font-size:15px}
+details p{color:var(--mut);font-size:14px;line-height:1.7;margin-top:8px}
+details p b{color:var(--txt)}
+/* support */
+.support{display:grid;gap:10px}
+.support .btn{width:100%}
+/* footer */
+footer{margin-top:36px;border-top:1px solid var(--line);padding-top:18px;font-size:13px;color:var(--mut);line-height:1.8}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;color:#cfe6ff;word-break:break-all}
+.pred{color:var(--gold);font-weight:700;font-size:12px}
+@media(min-width:640px){.lanes{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){
+  .hero-cards{grid-template-columns:repeat(5,1fr);gap:6px}
+  .hcard .nm{font-size:10px;padding:6px 4px}
+  .hcard .tg{display:none}
+  .stat b{font-size:18px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .tokgrid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="in">
+    <div class="logo">🔮 MiChan <span>· CRYSTAL CATS</span></div>
+    <nav>
+      <a class="pill" href="#variants">Variants</a>
+      <a class="pill" href="#how">How to Mint</a>
+      <a class="pill" href="#token">$MICH</a>
+      <a class="pill" href="#faq">FAQ</a>
+      <a class="pill" href="market.html">Market</a>
+      <a class="btn gold" href="#mint" style="padding:8px 16px">Mint</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker"><span>2,222 CRYSTAL CATS &nbsp;·&nbsp; FIRST MINT FREE &nbsp;·&nbsp; AGENTS FIRST CLASS &nbsp;·&nbsp; $MICH &nbsp;·&nbsp; 10 VARIANTS &nbsp;·&nbsp; MAX 3 PER WALLET &nbsp;·&nbsp; 2,222 CRYSTAL CATS &nbsp;·&nbsp; FIRST MINT FREE &nbsp;·&nbsp; AGENTS FIRST CLASS &nbsp;·&nbsp; $MICH &nbsp;·&nbsp; 10 VARIANTS &nbsp;·&nbsp; MAX 3 PER WALLET &nbsp;·&nbsp;</span></div>
+
+<div class="wrap">
+
+  <div class="banner" id="previewBanner">🔮 <b>PREVIEW</b> — contracts are not deployed yet. Nothing here mints. Mint opens on the announced date.</div>
+
+  <section class="hero">
+    <div class="eyebrow">BNB SMART CHAIN · 5 TIERS · FIRST MINT FREE</div>
+    <h1>MiChan</h1>
+    <p class="sub"><b>2,222 crystal cats</b> across <b>ten variants</b>, every one a tiny guardian of blue crystal and gold. <b>First mint FREE</b> for Agent ID holders — <b>paid mints open to everyone</b>, <b>0.001 BNB</b> then <b>0.003 BNB</b>, max <b>3 per wallet</b>.</p>
+
+    <div class="hero-cards">
+      <div class="hcard"><img src="assets/hero.png" alt="Crystal Knight"><div class="nm">Crystal Knight</div><div class="tg">COMMON</div></div>
+      <div class="hcard"><img src="assets/tier-uncommon-a.jpg" alt="Frost Crystal Cat" loading="lazy"><div class="nm">Frost Crystal</div><div class="tg">UNCOMMON</div></div>
+      <div class="hcard"><img src="assets/tier-rare-b.jpg" alt="Golden Crystal Cat" loading="lazy"><div class="nm">Golden Crystal</div><div class="tg">RARE</div></div>
+      <div class="hcard"><img src="assets/tier-epic-a.jpg" alt="Dragon Crystal Cat" loading="lazy"><div class="nm">Dragon Crystal</div><div class="tg">EPIC</div></div>
+      <div class="hcard"><img src="assets/tier-legendary.jpg" alt="Celestial Crystal Cat" loading="lazy"><div class="nm">Celestial</div><div class="tg">LEGENDARY</div></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>2,222</b><span>TOTAL CATS</span></div>
+      <div class="stat"><b>10</b><span>VARIANTS</span></div>
+      <div class="stat"><b>3</b><span>MAX PER WALLET</span></div>
+    </div>
+
+    <div class="ballcard">
+      <h3>🔮 LIVE STATUS — THE CRYSTAL BALL</h3>
+      <div class="ballwrap">
+        <div class="ballglow" id="ballGlow"></div>
+        <img id="ballImg" src="assets/crystal-ball.jpg" alt="Crystal ball">
+      </div>
+      <div class="ballnum"><span id="ballMinted">—</span> <small>/ 2,222 minted</small></div>
+      <div class="bar"><i id="ballBar"></i></div>
+      <div class="ballnote" id="ballNote">Preview — contracts not deployed yet. The ball wakes when the first cat is minted.</div>
+    </div>
+  </section>
+
+  <section id="lanes">
+    <div class="eyebrow2">TWO LANES · FREE FOR AGENTS, PAID FOR EVERYONE</div>
+    <h2>Pick your <span>lane</span></h2>
+    <p class="lede">Two ways in. The <b>free mint belongs to agents</b> — the <b>paid mints are open to everyone</b>, straight from this page with a wallet and BNB.</p>
+    <div class="lanes">
+      <div class="lane gold">
+        <h3>🤖 Priority Lane — <span>Agents First Class</span></h3>
+        <p>For holders of a Binance <b>.ai Agent ID</b>. Mint through your Binance Agentic Wallet with the agent skill below — <b>your first mint is FREE</b>.</p>
+        <ul>
+          <li>Mint #1 — FREE (Agent ID required)</li>
+          <li>Free mint only — paid mints are public</li>
+          <li>Max 3 per wallet total — 1 free + 2 paid</li>
+          <li>120,000 MICH per paid mint</li>
+        </ul>
+        <p style="margin-top:10px"><a href="agent-skill.md" target="_blank" rel="noopener">Read the agent skill →</a></p>
+      </div>
+      <div class="lane">
+        <h3>💎 Public Lane — <span>Open to Everyone</span></h3>
+        <p>No Agent ID needed. Mint the paid cats with any wallet, right here on this page — <b>flat BNB, no oracle</b>.</p>
+        <ul>
+          <li>First paid mint — 0.001 BNB</li>
+          <li>Second paid mint — 0.003 BNB</li>
+          <li>Max 2 paid per wallet</li>
+          <li>120,000 MICH per paid mint</li>
+        </ul>
+        <p style="margin-top:10px"><a href="#mint">Mint with your wallet ↓</a></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip"><span>THE CRYSTAL PACK IS HERE &nbsp;·&nbsp; 2,222 CRYSTAL CATS &nbsp;·&nbsp; 10 VARIANTS &nbsp;·&nbsp; FIRST MINT FREE &nbsp;·&nbsp; THE CRYSTAL PACK IS HERE &nbsp;·&nbsp; 2,222 CRYSTAL CATS &nbsp;·&nbsp; 10 VARIANTS &nbsp;·&nbsp; FIRST MINT FREE &nbsp;·&nbsp;</span></div>
+
+  <section id="variants">
+    <div class="eyebrow2">TEN VARIANTS · FIVE TIERS</div>
+    <h2>The <span>variants</span></h2>
+    <p class="lede">Every rarity has its own artwork — and most rarities have <b>extra variants</b> inside the same tier. Your cat is decided by its token ID; the rarer the range, the fewer exist.</p>
+    <div class="grid">
+      <div class="vcard"><img src="assets/hero.png" alt="Crystal Knight"><div class="bd"><div class="nm">Crystal Knight</div><div class="rar rar-common">COMMON · A</div><div class="rng">IDs 1–371</div><div class="cnt">371 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-common-b.jpg" alt="Crystal Archer" loading="lazy"><div class="bd"><div class="nm">Crystal Archer</div><div class="rar rar-common">COMMON · B</div><div class="rng">IDs 372–741</div><div class="cnt">370 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-common-c.jpg" alt="Crystal Mage" loading="lazy"><div class="bd"><div class="nm">Crystal Mage</div><div class="rar rar-common">COMMON · C</div><div class="rng">IDs 742–1,111</div><div class="cnt">370 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-uncommon-a.jpg" alt="Frost Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Frost Crystal Cat</div><div class="rar rar-uncommon">UNCOMMON · A</div><div class="rng">IDs 1,112–1,388</div><div class="cnt">277 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-uncommon-b.jpg" alt="Rose Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Rose Crystal Cat</div><div class="rar rar-uncommon">UNCOMMON · B</div><div class="rng">IDs 1,389–1,666</div><div class="cnt">278 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-rare-a.jpg" alt="Shadow Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Shadow Crystal Cat</div><div class="rar rar-rare">RARE · A</div><div class="rng">IDs 1,667–1,832</div><div class="cnt">166 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-rare-b.jpg" alt="Golden Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Golden Crystal Cat</div><div class="rar rar-rare">RARE · B</div><div class="rng">IDs 1,833–1,999</div><div class="cnt">167 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-epic-a.jpg" alt="Dragon Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Dragon Crystal Cat</div><div class="rar rar-epic">EPIC · A</div><div class="rng">IDs 2,000–2,076</div><div class="cnt">77 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-epic-b.jpg" alt="Phoenix Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Phoenix Crystal Cat</div><div class="rar rar-epic">EPIC · B</div><div class="rng">IDs 2,077–2,154</div><div class="cnt">78 cats</div></div></div>
+      <div class="vcard"><img src="assets/tier-legendary.jpg" alt="Celestial Crystal Cat" loading="lazy"><div class="bd"><div class="nm">Celestial Crystal Cat</div><div class="rar rar-legendary">LEGENDARY</div><div class="rng">IDs 2,155–2,222</div><div class="cnt">68 cats</div></div></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="eyebrow2">FOUR STEPS</div>
+    <h2>How it <span>works</span></h2>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><div><h3>Pick your lane</h3><p>Agent ID holders mint <b>free</b> through their Binance Agentic Wallet. Everyone else mints the <b>paid</b> cats with any wallet on this page — first paid 0.001 BNB, second paid 0.003 BNB. Max 3 per wallet total.</p></div></div>
+      <div class="step"><div class="n">2</div><div><h3>The token ID decides your cat</h3><p>Mints are sequential, 1 to 2,222. The ID you receive fixes the variant — Common, Uncommon, Rare, Epic, or the 68 Celestial Legendaries. No choosing, no re-rolls.</p></div></div>
+      <div class="step"><div class="n">3</div><div><h3>Your cat is revealed at mint</h3><p>There is no delayed reveal — the artwork for your token ID is visible as soon as it is minted. What you mint is what you get.</p></div></div>
+      <div class="step"><div class="n">4</div><div><h3>Yours to keep or trade</h3><p>Show it, hold it, or list it on the <a href="market.html">MiChan Market</a> — 0% marketplace fee, 5% creator royalty on every sale.</p></div></div>
+    </div>
+  </section>
+
+  <section id="mint">
+    <div class="eyebrow2">MINT · TWO LANES</div>
+    <h2>Mint <span>MiChan</span></h2>
+    <div class="mintbox">
+      <p class="lede" style="margin-bottom:0"><b>PREVIEW — mint is not open yet.</b> The price schedule below is planned, not on-chain. The free mint is for Agent ID holders; paid mints are public.</p>
+      <table class="price-table">
+        <tr><th>MINT #</th><th>WHO</th><th>PRICE</th></tr>
+        <tr><td>#1 per wallet</td><td>Agent ID only</td><td>FREE</td></tr>
+        <tr><td>#2 per wallet</td><td>Public</td><td>0.001 BNB</td></tr>
+        <tr><td>#3 per wallet</td><td>Public</td><td>0.003 BNB</td></tr>
+      </table>
+      <p class="fine">Max 3 per wallet (1 free + 2 paid). Paid mints earn 120,000 MICH each. The free mint needs an Agent ID — checked on-chain.</p>
+
+      <h3 style="font-size:16px;margin:20px 0 6px">💎 Public Lane — mint paid cats with your wallet</h3>
+      <p class="fine" style="margin-bottom:10px">Anyone can mint the paid cats — no Agent ID needed. Connect your wallet, pick 1 or 2, and pay flat BNB. The price is read from the contract for your wallet, so it is always exact.</p>
+      <div class="row">
+        <button class="btn gold" id="connectWalletBtn" type="button">Connect wallet</button>
+        <button class="btn" id="mintNowBtn" type="button" disabled>Mint now</button>
+      </div>
+      <div class="stepper">
+        <span class="lbl">Paid mints:</span>
+        <button class="qtybtn" id="paidMinus" type="button">−</button>
+        <span class="qtyval" id="paidQtyVal">1</span>
+        <button class="qtybtn" id="paidPlus" type="button">+</button>
+        <span class="total" id="paidTotal">0.001 BNB</span>
+      </div>
+      <div class="status" id="publicStatus">Preview — the contract is not deployed yet. Connect your wallet to see your exact price once mint is live.</div>
+      <div class="fine" id="myMintsLine" style="margin-top:6px">Your wallet: not connected.</div>
+
+      <h3 style="font-size:16px;margin:20px 0 6px">🤖 Priority Lane — free mint for Agent ID holders</h3>
+      <p class="fine" style="margin-bottom:10px">Your agent mints your FREE cat. Copy the prompt and paste it to your Binance Agentic Wallet.</p>
+      <div class="row">
+        <button class="btn gold" id="showPromptBtn" type="button">🤖 Mint with your agent</button>
+        <button class="btn ghost" id="copyPromptBtn" type="button">Copy agent prompt</button>
+      </div>
+      <div id="agentPromptBox" style="display:none;margin-top:6px">
+        <div class="codebox" id="agentPrompt"></div>
+        <p class="fine" style="margin-top:8px">Paste this prompt to your Binance Agentic Wallet. It simulates first, then executes — and only after mint opens.</p>
+      </div>
+
+      <h3 style="font-size:16px;margin:20px 0 6px">Check your Agent ID</h3>
+      <p class="fine" style="margin-bottom:10px">Paste your Agentic Wallet address. The page reads the chain to see if it holds an Agent ID — no wallet connection needed.</p>
+      <div class="row">
+        <input type="text" id="agentAddr" placeholder="0x…" autocomplete="off" spellcheck="false">
+        <button class="btn ghost" id="agentCheckBtn" type="button" style="flex:0 0 auto">Check Agent ID</button>
+      </div>
+      <div class="status" id="agentCheckOut"></div>
+    </div>
+  </section>
+
+  <section id="token">
+    <div class="eyebrow2">BONUS TOKEN</div>
+    <h2>$MICH</h2>
+    <p class="lede">Every <b>paid</b> mint earns <b>120,000 MICH</b> — the MiChan bonus token, claimable from the token contract. Free mints earn 0. MICH is a bonus for minters, not a promise: <b>it has no price, no liquidity pool, and no guaranteed value</b>. If a pool ever exists, it will be announced — never assumed.</p>
+    <div class="tokgrid">
+      <div class="tok"><b>1,000,000,000</b><span>TOTAL SUPPLY</span></div>
+      <div class="tok"><b>540,000,000</b><span>BONUS POOL</span></div>
+      <div class="tok"><b>460,000,000</b><span>TREASURY</span></div>
+      <div class="tok"><b>120,000</b><span>MICH PER PAID MINT</span></div>
+    </div>
+    <p class="fine">Max 240,000 MICH per wallet (2 paid mints × 120,000). Worst case the pool needs ~178M MICH if every paid mint is claimed — well inside the 540M pool.</p>
+  </section>
+
+  <section id="faq">
+    <div class="eyebrow2">QUESTIONS</div>
+    <h2>FAQ</h2>
+    <details>
+      <summary>Who gets the free mint?</summary>
+      <p>Only wallets holding a Binance <b>.ai Agent ID</b>, minted through their agent. Public wallets <b>cannot</b> claim the free mint — the contract enforces it on-chain. One free mint per wallet.</p>
+    </details>
+    <details>
+      <summary>Who can mint the paid cats?</summary>
+      <p><b>Anyone.</b> Connect any wallet on this page and pay flat BNB — first paid mint <b>0.001 BNB</b>, second paid mint <b>0.003 BNB</b>. Max 2 paid per wallet. No Agent ID needed, no oracle, no price surprises: the page reads your exact price from the contract before you confirm.</p>
+    </details>
+    <details>
+      <summary>What is the most one wallet pays?</summary>
+      <p>Max 3 cats per wallet — 1 free + 2 paid — so the most one wallet ever pays is <b>0.004 BNB</b> plus gas. Paid mints earn <b>120,000 MICH</b> each (max 240,000 per wallet).</p>
+    </details>
+    <details>
+      <summary>What is $MICH?</summary>
+      <p>MICH is the bonus token for paid minters: <b>120,000 MICH per paid mint</b> (max 240,000 per wallet). Total supply 1B — 540M in the bonus pool, 460M treasury. It has <b>no price and no liquidity pool yet</b>, and nothing here promises it will ever have one.</p>
+    </details>
+    <details>
+      <summary>When does mint open?</summary>
+      <p>Date <b>TBA</b>. This page is a <b>preview</b> — the contracts are not deployed yet and nothing here mints. The crystal ball above wakes when the first cat is minted.</p>
+    </details>
+  </section>
+
+  <section id="support">
+    <div class="eyebrow2">SPREAD THE WORD</div>
+    <h2>Support <span>MiChan</span></h2>
+    <p class="lede">MiChan has no official X account yet. If you like the cats, post about them — every share helps the pack grow.</p>
+    <div class="support">
+      <button class="btn gold" id="shareBtn" type="button">Post on X</button>
+      <a class="btn ghost" href="market.html" style="text-align:center">Visit the Market →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>MiChan (MICHAN) — NFT contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984</code></div>
+    <div>MICH token: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B</code></div>
+    <div>Market contract: <span class="pred">PREDICTED — NOT DEPLOYED YET</span><br><code>0x11dA65a668C947799739722af745AF34868d3aCc</code></div>
+    <div style="margin-top:10px">Chain: BNB Smart Chain (56) · Royalty 5% · Max 3 per wallet · Free mint: Agent ID only. Paid mints: public, wallet, flat BNB.</div>
+    <div>Honest rules: no promise of financial return. Mint prices, supply, and rarity ranges are published above. MICH has no price or liquidity yet.</div>
+    <div>© 2026 MiChan. Crystal cats, forged in blue light.</div>
+  </footer>
+</div>
+<script>
+"use strict";
+/* MiChan — PREVIEW page. Contracts NOT deployed yet.
+   All live reads target the PREDICTED NFT address; before deploy every
+   read fails and the page shows the preview state — never 0. */
+var NFT = "0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984";
+var MICH = "0xeFD8c537a29736B92B2e9C6fbbD55784108eeE2B";
+var MARKET = "0x11dA65a668C947799739722af745AF34868d3aCc";
+var REGISTRY = "0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F";
+var MAX_SUPPLY = 2222;
+var MAX_PER_WALLET = 3;
+var FREE_PER_WALLET = 1;
+var MAX_PAID_PER_WALLET = 2;
+var BSC_CHAIN_ID = 56;
+/* mintPaid(uint256) — public paid-mint entry (two-lane contract).
+   mintFree() — agent-only free-mint entry. Selectors = first 4 bytes of
+   keccak256(signature), computed with ethers.id and verified against the
+   revised contract source. */
+var SEL_MINT_PAID = "0x26c7f77c";
+var SEL_MINT_FREE = "0x8ab53447";
+/* per-wallet views on the revised contract:
+   quotePaidFor(address,uint256) = exact wei cost for qty further paid mints;
+   paidMintedOf(address) / freeMintedOf(address) = the wallet's paid/free
+   counts (free and paid can be claimed in any order, so read both). */
+var SEL_QUOTE_PAID_FOR = "0xfba2a03e";
+var SEL_PAID_MINTED_OF = "0xb41e2f7b";
+var SEL_FREE_MINTED_OF = "0xf7b856b1";
+var SEL_MINT_OPEN = "0x24bbd049"; /* mintOpen() */
+
+var RPCS = [
+  "https://bsc-dataseed1.defibit.io/",
+  "https://bsc-dataseed.binance.org/",
+  "https://bsc-dataseed1.ninicoin.io/"
+];
+var SEL_TOTAL_SUPPLY = "0x18160ddd"; /* totalSupply() */
+var SEL_BALANCE = "0x70a08231";      /* balanceOf(address) */
+
+function $(id) { return document.getElementById(id); }
+function setText(id, t) { var el = $(id); if (el) el.textContent = t; }
+function hexPad32(n) { return BigInt(n).toString(16).padStart(64, "0"); }
+function fmtWei(wei) {
+  try {
+    var b = BigInt(wei);
+    var whole = b / 1000000000000000000n;
+    var frac = b % 1000000000000000000n;
+    var f = frac.toString().padStart(18, "0").replace(/0+$/, "");
+    return whole.toString() + (f ? "." + f.slice(0, 6) : "") + " BNB";
+  } catch (e) { return "?"; }
+}
+
+async function ethCall(to, data) {
+  var body = JSON.stringify({ jsonrpc: "2.0", id: 1, method: "eth_call", params: [{ to: to, data: data }, "latest"] });
+  for (var i = 0; i < RPCS.length; i++) {
+    var ctrl = new AbortController();
+    var t = setTimeout(function () { ctrl.abort(); }, 10000);
+    try {
+      var res = await fetch(RPCS[i], { method: "POST", headers: { "Content-Type": "application/json" }, body: body, signal: ctrl.signal });
+      clearTimeout(t);
+      if (!res.ok) continue;
+      var j = await res.json();
+      if (j && j.result && j.result !== "0x") return j.result;
+    } catch (e) { clearTimeout(t); }
+  }
+  throw new Error("all RPCs failed");
+}
+
+/* ---- live status: crystal ball ---- */
+function setBall(minted) {
+  var img = $("ballImg"), glow = $("ballGlow"), bar = $("ballBar");
+  if (minted === null) {
+    setText("ballMinted", "—");
+    setText("ballNote", "Preview — contracts not deployed yet. The ball wakes when the first cat is minted.");
+    if (bar) bar.style.width = "0%";
+    if (img) img.style.filter = "brightness(0.55) saturate(0.7)";
+    if (glow) glow.style.opacity = "0.25";
+    return;
+  }
+  var frac = Math.min(1, minted / MAX_SUPPLY);
+  setText("ballMinted", String(minted));
+  if (bar) bar.style.width = (frac * 100).toFixed(1) + "%";
+  if (img) img.style.filter = "brightness(" + (0.55 + 0.55 * frac).toFixed(2) + ") saturate(" + (0.7 + 0.6 * frac).toFixed(2) + ")";
+  if (glow) glow.style.opacity = (0.25 + 0.75 * frac).toFixed(2);
+  setText("ballNote", minted >= MAX_SUPPLY
+    ? "Sold out — all 2,222 crystal cats minted. The ball burns bright."
+    : "Live on BNB Chain · " + minted + " / 2,222 minted · the ball glows brighter with every mint.");
+}
+
+var contractLive = false; /* true once a totalSupply read succeeds */
+var mintOpen = false;
+async function readLive() {
+  try {
+    var raw = await ethCall(NFT, SEL_TOTAL_SUPPLY);
+    var minted = parseInt(raw, 16);
+    if (isNaN(minted)) { setBall(null); contractLive = false; updateMintButton(); return; }
+    setBall(minted);
+    contractLive = true;
+    try {
+      var openRaw = await ethCall(NFT, SEL_MINT_OPEN);
+      mintOpen = parseInt(openRaw, 16) === 1;
+    } catch (e) { mintOpen = false; }
+    updateMintButton();
+  } catch (e) {
+    /* preview state: never show a failed read as 0 */
+    setBall(null);
+    contractLive = false;
+    updateMintButton();
+  }
+}
+
+/* ---- public lane: wallet mint (paid) ---- */
+var connected = null;
+var myPaidCount = null; /* paid mints by the connected wallet, null = unknown */
+var myFreeCount = null; /* free mints by the connected wallet, null = unknown */
+var paidQty = 1;
+
+function myPaid() { return myPaidCount === null ? 0 : myPaidCount; }
+function myFree() { return myFreeCount === null ? 0 : myFreeCount; }
+function myMinted() { return (myPaidCount === null || myFreeCount === null) ? null : myPaidCount + myFreeCount; }
+/* planned price for qty paid mints given already-paid count (milli-BNB):
+   1st paid = 0.001, 2nd paid = 0.003 */
+function plannedPaidMilli(paid, q) {
+  var total = 0;
+  for (var i = 1; i <= q; i++) {
+    var idx = paid + i;
+    total += (idx === 1 ? 1 : idx === 2 ? 3 : 0);
+  }
+  return total;
+}
+function fmtMilli(m) {
+  if (m === 0) return "FREE";
+  return (m / 1000).toFixed(3).replace(/0+$/, "").replace(/\.$/, "") + " BNB";
+}
+function updatePaid() {
+  var maxQ = MAX_PAID_PER_WALLET - myPaid();
+  if (maxQ <= 0) {
+    setText("paidQtyVal", "0");
+    setText("paidTotal", "—");
+    setText("publicStatus", "Your wallet already minted both paid cats (2/2). The free mint, if unclaimed, is for Agent ID holders via their agent.");
+    updateMintButton();
+    return;
+  }
+  if (paidQty > maxQ) paidQty = maxQ;
+  if (paidQty < 1) paidQty = 1;
+  setText("paidQtyVal", String(paidQty));
+  setText("paidTotal", fmtMilli(plannedPaidMilli(myPaid(), paidQty)));
+  updateMintButton();
+}
+function updateMintButton() {
+  var b = $("mintNowBtn");
+  if (!b) return;
+  if (!contractLive || !mintOpen || !connected) { b.disabled = true; return; }
+  b.disabled = (MAX_PAID_PER_WALLET - myPaid() < 1);
+}
+function setMyMintsLine() {
+  var el = $("myMintsLine");
+  if (!el) return;
+  if (!connected) { el.textContent = "Your wallet: not connected."; return; }
+  var total = myMinted();
+  if (total === null) { el.textContent = "Your wallet: " + connected.slice(0, 6) + "…" + connected.slice(-4) + " — minted count unknown (preview). Planned price assumes 0 paid so far."; return; }
+  el.textContent = "Your wallet: " + connected.slice(0, 6) + "…" + connected.slice(-4) + " — minted " + total + " / 3 (" + myFree() + " free + " + myPaid() + " paid). " + (MAX_PAID_PER_WALLET - myPaid()) + " paid mint(s) left.";
+}
+async function readMyMints() {
+  if (!connected) return;
+  var pad = "000000000000000000000000" + connected.slice(2).toLowerCase();
+  try {
+    var rawPaid = await ethCall(NFT, SEL_PAID_MINTED_OF + pad);
+    myPaidCount = parseInt(rawPaid, 16);
+    if (isNaN(myPaidCount)) myPaidCount = null;
+  } catch (e) { myPaidCount = null; }
+  try {
+    var rawFree = await ethCall(NFT, SEL_FREE_MINTED_OF + pad);
+    myFreeCount = parseInt(rawFree, 16);
+    if (isNaN(myFreeCount)) myFreeCount = null;
+  } catch (e) { myFreeCount = null; }
+  setMyMintsLine();
+  updatePaid();
+}
+function bindPaid(id, fn) { var b = $(id); if (b) b.addEventListener("click", fn); }
+bindPaid("paidMinus", function () { paidQty = Math.max(1, paidQty - 1); updatePaid(); });
+bindPaid("paidPlus", function () { var cap = MAX_PAID_PER_WALLET - myPaid(); if (cap >= 1) paidQty = Math.min(cap, paidQty + 1); updatePaid(); });
+
+async function connectWallet() {
+  var btn = $("connectWalletBtn");
+  var out = $("publicStatus");
+  if (!window.ethereum) { out.textContent = "No wallet found. Install MetaMask or open this page in the Binance Wallet app."; return; }
+  try {
+    var accs = await window.ethereum.request({ method: "eth_requestAccounts" });
+    connected = accs[0];
+    btn.textContent = connected.slice(0, 6) + "…" + connected.slice(-4);
+    await ensureBsc();
+    out.textContent = "Connected. Reading your minted count from the contract…";
+    await readLive();
+    await readMyMints();
+    out.textContent = contractLive
+      ? (mintOpen ? "Connected — mint is open. Pick your quantity and press Mint now." : "Connected — mint is not open yet. Come back at the announced time.")
+      : "Connected — contract not deployed yet (preview). Your exact price will be read from the chain once mint is live.";
+    updatePaid();
+  } catch (e) {
+    out.textContent = "Wallet connection failed: " + (e && e.message ? e.message : e);
+  }
+}
+async function ensureBsc() {
+  try {
+    var chainId = await window.ethereum.request({ method: "eth_chainId" });
+    if (parseInt(chainId, 16) !== BSC_CHAIN_ID) {
+      await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x38" }] });
+    }
+  } catch (e) {
+    if (e && e.code === 4902) {
+      await window.ethereum.request({ method: "wallet_addEthereumChain", params: [{ chainId: "0x38", chainName: "BNB Smart Chain", nativeCurrency: { name: "BNB", symbol: "BNB", decimals: 18 }, rpcUrls: ["https://bsc-dataseed.binance.org/"], blockExplorerUrls: ["https://bscscan.com"] }] });
+    } else { throw e; }
+  }
+}
+async function doMintPaid() {
+  var out = $("publicStatus");
+  if (!contractLive) { out.textContent = "Preview — the contract is not deployed yet."; return; }
+  if (!mintOpen) { out.textContent = "Mint is not open yet."; return; }
+  if (!connected) { await connectWallet(); if (!connected) return; }
+  if (MAX_PAID_PER_WALLET - myPaid() < paidQty) { out.textContent = "You already minted " + myPaid() + " paid cat(s) — max 2 paid per wallet."; return; }
+  try {
+    out.textContent = "Reading your exact price from the contract…";
+    var valueWei = null;
+    try {
+      var qdata = SEL_QUOTE_PAID_FOR + "000000000000000000000000" + connected.slice(2).toLowerCase() + hexPad32(paidQty);
+      var qraw = await ethCall(NFT, qdata);
+      valueWei = BigInt(qraw);
+    } catch (e) { valueWei = null; }
+    if (valueWei === null) valueWei = BigInt(plannedPaidMilli(myPaid(), paidQty)) * 1000000000000000n;
+    out.textContent = "Confirm " + fmtWei(valueWei.toString()) + " in your wallet…";
+    await ensureBsc();
+    var tx = { from: connected, to: NFT, data: SEL_MINT_PAID + hexPad32(paidQty), value: "0x" + valueWei.toString(16) };
+    var hash = await window.ethereum.request({ method: "eth_sendTransaction", params: [tx] });
+    out.textContent = "Mint sent! Tx " + hash.slice(0, 18) + "… — refreshing your count.";
+    setTimeout(function () { readLive(); readMyMints(); }, 4000);
+  } catch (e) {
+    out.textContent = "Mint failed: " + (e && e.message ? e.message : e);
+  }
+}
+var connectWalletBtn = $("connectWalletBtn");
+if (connectWalletBtn) connectWalletBtn.addEventListener("click", connectWallet);
+var mintNowBtn = $("mintNowBtn");
+if (mintNowBtn) mintNowBtn.addEventListener("click", doMintPaid);
+
+/* ---- priority lane: agent prompt for the FREE mint ---- */
+function buildAgentPrompt() {
+  return "Use my Binance Agentic Wallet on BSC (chain 56) to call mintFree() on the MiChan contract 0x059F0d6f8E1f5449Ce1d0cDC2f026f5CD9585984 and mint my FREE MiChan (mint #1, Agent ID required). My wallet holds a .ai Agent ID and has not claimed its free mint yet. Simulate the transaction first, then execute it. NOTE: MiChan is in PREVIEW — do not mint before the contract is deployed.";
+}
+function openAgentPrompt() {
+  var box = $("agentPromptBox");
+  if (box) {
+    $("agentPrompt").textContent = buildAgentPrompt();
+    box.style.display = "block";
+    box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+}
+var showPromptBtn = $("showPromptBtn");
+if (showPromptBtn) showPromptBtn.addEventListener("click", openAgentPrompt);
+var copyPromptBtn = $("copyPromptBtn");
+if (copyPromptBtn) copyPromptBtn.addEventListener("click", function () {
+  if ($("agentPromptBox").style.display !== "block") openAgentPrompt();
+  var text = $("agentPrompt").textContent;
+  function done(ok) { copyPromptBtn.textContent = ok ? "Copied ✓" : "Copy failed — select the text manually"; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); });
+  } else {
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { done(document.execCommand("copy")); } catch (e) { done(false); }
+    document.body.removeChild(ta);
+  }
+});
+
+/* ---- Agent ID checker (read-only) ---- */
+var agentCheckBtn = $("agentCheckBtn");
+if (agentCheckBtn) agentCheckBtn.addEventListener("click", function () {
+  var addr = ($("agentAddr").value || "").trim();
+  var out = $("agentCheckOut");
+  if (!/^0x[0-9a-fA-F]{40}$/.test(addr)) { out.textContent = "Enter a valid 0x address (40 hex characters)."; return; }
+  out.textContent = "Checking on-chain…";
+  var data = SEL_BALANCE + "000000000000000000000000" + addr.slice(2).toLowerCase();
+  ethCall(REGISTRY, data).then(function (bal) {
+    var n = parseInt(bal, 16);
+    out.textContent = n > 0
+      ? "✓ This wallet holds an Agent ID (.ai) — it can mint (first mint free, then 0.001 / 0.003 BNB, max 3 per wallet)."
+      : "✗ No Agent ID found for this address — it cannot mint. Claim a free .ai Agent ID in the Binance app first.";
+    out.className = "status " + (n > 0 ? "ok" : "err");
+  }).catch(function () {
+    out.textContent = "Could not read the chain right now — please try again.";
+    out.className = "status err";
+  });
+});
+
+/* ---- share on X — draft built at click time, no handle yet ---- */
+var shareBtn = $("shareBtn");
+if (shareBtn) {
+  shareBtn.addEventListener("click", function () {
+    var minted = $("ballMinted") ? $("ballMinted").textContent : "—";
+    var text = (minted === "—")
+      ? "MiChan — 2,222 crystal cats on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. Preview is live, mint opens soon. #MiChan #BNBAgents"
+      : "MiChan — " + minted + " / 2,222 crystal cats minted on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. #MiChan #BNBAgents";
+    var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent("https://michan.vercel.app/");
+    window.open(url, "_blank", "noopener");
+  });
+}
+
+updatePaid();
+readLive();
+setInterval(readLive, 30000);
+</script>
+</body>
+</html>
