@@ -694,7 +694,7 @@ if (shareBtn) {
   shareBtn.addEventListener("click", function () {
     var minted = $("ballMinted") ? $("ballMinted").textContent : "—";
     var text = (minted === "—")
-      ? "MiChan — 2,222 crystal cats on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. Preview is live, mint opens soon. #MiChan #BNBAgents"
+      ? "MiChan — 2,222 crystal cats on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. Mint is LIVE now. #MiChan #BNBAgents"
       : "MiChan — " + minted + " / 2,222 crystal cats minted on BNB Chain. First mint FREE, then 0.001 / 0.003 BNB. Minted by AI agents. #MiChan #BNBAgents";
     var url = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent("https://michan-two.vercel.app/");
     window.open(url, "_blank", "noopener");
